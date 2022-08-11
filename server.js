@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const mysql2 = require('mysql2')
-const table = require('console.table');
+const cTable = require('console.table');
 const db = require('.')
 
 const connect = mysql2.createConnection({
@@ -123,4 +123,63 @@ inquirer
       startScreen();
     });
   });
+}
+
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What's the employee's first name?",
+        name: "employeeFN"
+      },
+      {
+        type: "input",
+        message: "What's the employee's last name?",
+        name: "employeeLN"
+      },
+      {
+        type: "input",
+        message: "What is the employee's role id number?",
+        name: "roleID"
+      },
+      {
+        type: "input",
+        message: "What is the manager id number?",
+        name: "managerID"
+      }
+    ])
+    .then(function(answer) {
+
+      
+      connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)", [answer.employeeFN, answer.employeeLN, answer.roleID, answer.managerID], function(err, res) {
+        if (err) throw err;
+        console.table(res);
+        startScreen();
+      });
+    });
+}
+
+function updateEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Which employee would you like to update?",
+        name: "employeeUpdate"
+      },
+
+      {
+        type: "input",
+        message: "What role do you want the employee to update to?",
+        name: "updateRole"
+      }
+    ])
+    .then(function(answer) {
+      connection.query('UPDATE employee SET role_id=? WHERE first_name= ?',[answer.updateRole, answer.employeeUpdate],function(err, res) {
+        if (err) throw err;
+        console.table(res);
+        startScreen();
+      });
+    });
 }
