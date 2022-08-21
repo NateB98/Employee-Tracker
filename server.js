@@ -1,12 +1,10 @@
 const inquirer = require('inquirer');
-const mysql2 = require('mysql2')
+const mysql = require('mysql2')
 const cTable = require('console.table');
-const db = require('.')
+// const db = require('./db')
 
-const connect = mysql2.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
-
-  port: 3333,
 
   user: 'root',
   password: 'Empyre',
@@ -15,7 +13,7 @@ const connect = mysql2.createConnection({
 
 connection.connect(function (err) {
   if (err) throw err;
-  console.log("connected as id " + connect.threadId);
+  console.log("connected as id " + connection.threadId);
 
   startScreen();
 });
