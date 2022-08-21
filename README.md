@@ -6,4 +6,4 @@ database, source the seed file path and follow that with node server.js and it w
 view all employees, add and employee, update employee, view all roles, add a role, view all departments, add a department, or just quit.
 selecting any one other than quit will result in more prompts for input and it will take your input to generate new items into the database.
 
-![Walkthrough link](https://drive.google.com/file/d/1eEATj4_YuoaK-zA4cap22rTH1yWJiRAo/view)
+![Walkthrough link](chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/5dfe40ad-e68b-4ab9-y913-f3199f97cf38)
