@@ -6,4 +6,4 @@ database, source the seed file path and follow that with node server.js and it w
 view all employees, add and employee, update employee, view all roles, add a role, view all departments, add a department, or just quit.
 selecting any one other than quit will result in more prompts for input and it will take your input to generate new items into the database.
 
-![Screenshot](images\Employee-Tracker-Screenshot.png)
+![Screenshot](https://github.com/NateB98/Employee-Tracker/blob/main/images/Employee-Tracker-Screenshot.png)
